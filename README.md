@@ -1,10 +1,10 @@
-# diffusion_model_co2_absorption
-Model of the chemical process for absorption of gaseous co2 using a solution of CaO in a CaCl2 solution using a learned diffusion model.  This is a relatively simple dynamical system which is used to sample from the ODE governing the chemical reactions.  These samples are the input to the ML learning of the diffusion model.
+# MLP model of carbon capture: co2 absorption 
+Model of the chemical process for a carbon capture chemical process: absorption of gaseous co2 using a solution of CaO in a CaCl2 solution using a learned MLP model.  This is a relatively simple dynamical system which is used to sample from the ODE governing the chemical reactions, but can be run in a fully-observable or partially-observable setup to simulate a process monitored using limited sensors.  These samples are the input to the MLP learning of the model.
 
 This notebook was developed using both AI-assisted (GPT 5) and traditional coding.
 
 This notebook should be able to be run top-to-bottom with any changes to the top-cell parameters.  These specify:
- - use_full_x: Specifies whether to use just the concentrations of CO2, CaO, and CaCO3 in solution (which is a partially observable system), or to also include the randomly sampled reaction parameters (k_abs - the absorption rate of CO2, k_react - the reaction rate of CO2 and CaO, and C_gas - the concentration of CO2 in gaseous form, which makes it a fully observable system.
+ - use_full_x: Specifies whether to use just the concentrations of CO2, CaO, and CaCO3 in solution (which is a partially observable system), or to also include the sampled reaction parameters (k_abs - the absorption rate of CO2, k_react - the reaction rate of CO2 and CaO, and C_gas - the concentration of CO2 in gaseous form, which makes it a fully observable system.
  - use_time: whether to also encode time as input to the NN.  This is important when we model a time-varying concentration of gaseous CO2, but can also lead to overfitting in the partially observable system.
  - use_time_varying_c_gas: add a periodic variation to the concentration of the CO2 gas.  This is a more interesting problem and takes longer to learn a good model.
  - A, f, phi: these are parameters governing the CO2 oscillation
